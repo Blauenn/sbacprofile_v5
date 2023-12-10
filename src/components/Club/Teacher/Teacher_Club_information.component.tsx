@@ -1,0 +1,70 @@
+import { useState, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+import fade_transition from "../../../animations/fade_transition.transition";
+import { ClubInterface, ClubManagerInterface, ClubMembershipInterface } from "../../../interfaces/clubs.interface";
+// Contexts //
+import { useContext_Clubs } from "../../../contexts/Clubs/Clubs.context";
+// Components //
+import Club_clubName from "../Club_clubName.component";
+import Club_information_teachers from "../Club_information_teachers.component";
+import Club_information_members from "../Club_information_members.component";
+import Club_clubJoinRequests from "../clubRequests/Club_clubJoinRequests.component";
+import Club_clubLeaveRequests from "../clubRequests/Club_clubLeaveRequests.component";
+// Constants //
+import { club_information_card_style } from "../../../constants/styles/club/club_information_card.constant";
+
+interface CurrentComponentProp {
+	selfClub: ClubInterface;
+}
+
+const Teacher_Club_information = (props: CurrentComponentProp) => {
+	const { selfClub } = props;
+
+	const { clubMemberships, clubManagers } = useContext_Clubs();
+
+	const [selfClubManagers, setSelfClubManagers] = useState<ClubManagerInterface[]>([]);
+	const [selfClubMembers, setSelfClubMembers] = useState<ClubMembershipInterface[]>([]);
+
+	useEffect(() => {
+		const clubManagersSelf: ClubManagerInterface[] = clubManagers.result.filter((clubManager: ClubManagerInterface) => clubManager.club_manager_club_ID === selfClub.club_ID);
+		setSelfClubManagers(clubManagersSelf);
+
+		const clubMembersSelf: ClubMembershipInterface[] = clubMemberships.result.filter((clubMembership: ClubMembershipInterface) => clubMembership.club_membership_club_ID === selfClub.club_ID);
+		setSelfClubMembers(clubMembersSelf);
+	}, [clubMemberships]);
+
+	const { t } = useTranslation("page_teacher_club");
+
+	return (
+		<div className="grid grid-cols-5 gap-4">
+			{/* Club name */}
+			<div className={`${club_information_card_style} md:col-span-3`}>
+				<Club_clubName selfClub={selfClub} />
+			</div>
+			{/* Club teachers */}
+			<div className={`${club_information_card_style} md:col-span-2`}>
+				<Club_information_teachers
+					clubTeachers={selfClubManagers}
+					title={t("teachers_title")}
+				/>
+			</div>
+			{/* Club members */}
+			<div className={`${club_information_card_style} md:col-span-2`}>
+				<Club_information_members
+					clubMembers={selfClubMembers}
+					title={t("members_title")}
+				/>
+			</div>
+			{/* Club join requests */}
+			<div className={`${club_information_card_style} md:col-span-3`}>
+				<Club_clubJoinRequests selfClub={selfClub} />
+			</div>
+			{/* Club leave requests */}
+			<div className={`${club_information_card_style} md:col-span-3`}>
+				<Club_clubLeaveRequests selfClub={selfClub} />
+			</div>
+		</div>
+	);
+};
+
+export default fade_transition(Teacher_Club_information);

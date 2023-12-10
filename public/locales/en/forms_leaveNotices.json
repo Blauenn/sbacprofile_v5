@@ -1,0 +1,52 @@
+{
+	"teachers_evaluate_modal_header": "Evaluate leave notice",
+  
+  "students_myLeaveNotices_title": "My leave notices",
+  "students_view_modal_header": "Leave notice",
+  "teachers_myLeaveNotices_title": "Students leave notices",
+  "teachers_view_modal_header": "Leave notice",
+	
+  "modal_content_reasonOfLeave_label": "Reason of leave",
+  "modal_content_description_label": "Description",
+  "modal_content_attachedFile_label": "Attached file",
+  "modal_content_attachedFile_fileText": "File",
+  "modal_content_attachedFile_noFileText": "No file uploaded.",
+  "modal_content_dateOfLeave_label": "Date of leave",
+  "modal_content_startDate_label": "Start date",
+  "modal_content_endDate_label": "End date",
+  "modal_content_timeOfSubmission_label": "Time of submission",
+   
+  "table_header_student": "Student",
+  "table_header_type": "Type",
+  "table_header_startDate": "Start date",
+  "table_header_endDate": "End date",
+  "table_header_status": "Status",
+  "table_content_button_view_title": "View",
+  "table_content_button_file_title": "File",
+  "table_noLeaveNotices_message": "No leave notices",
+   
+  "evaluate_button_title": "Evaluate",
+  "evaluate_button_approve_title": "Approve",
+  "evaluate_button_edit_title": "Request edit",
+  "evaluate_button_reject_title": "Reject",
+  "evaluate_modal_submit_success_message": "Leave notice has been evaluated.",
+
+	"delete_button_title": "Delete",
+   
+  "status_timeline_requestCreated_title": "Request created",
+  "status_timeline_teacher_title": "Teacher",
+  "status_timeline_head_title": "Head of department",
+  "status_timeline_status_title": "Status",
+  "status_timeline_pending": "Pending",
+  "status_timeline_changesNeeded": "Changes needed",
+  "status_timeline_rejected": "Rejected",
+  "status_timeline_approved": "Approved",
+
+  "status_teacher_pending": "Pending teacher",
+  "status_teacher_rejected": "Rejected by teacher",
+  "status_head_pending": "Pending head",
+  "status_head_rejected": "Rejected by head",
+  "status_changesNeeded": "Changes needed",
+  "status_approved": "Approved"
+
+}

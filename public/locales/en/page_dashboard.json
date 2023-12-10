@@ -1,0 +1,40 @@
+{
+	"header": "Dashboard",
+
+	"header_quickAccess": "Quick access",
+	"header_homeroomStudents": "Homeroom students",
+	"header_headOfDepartment": "Major",
+	"header_others": "Others",
+	
+	"button_title_announcements": "Announcements",
+	"admin_button_description_announcements": "Manage announcements",
+
+	"button_title_classrooms": "Classrooms",
+	"admin_button_description_classrooms": "Manage classrooms",
+
+	"button_title_students": "Students",
+	"admin_button_description_students": "Manage students",
+	"head_button_description_students": "Manage students",
+
+	"button_title_teachers": "Teachers",
+	"admin_button_description_teachers": "Manage teachers",
+	"head_button_description_teachers": "Manage teachers",
+
+	"button_title_club": "Club",
+	"button_description_club": "View club information",
+
+	"button_title_clubs": "Clubs",
+	"admin_button_description_clubs": "Manage clubs",
+	"head_button_description_clubs": "Manage clubs",
+	"teacher_button_description_clubs": "Manage current club",
+
+	"button_title_leaveNotices": "Leave notices",
+	"button_description_leaveNotices": "See leave notices",
+	"admin_button_description_leaveNotices": "See all leave notices",
+	"head_button_description_leaveNotices": "See leave notices",
+	
+	"button_title_requestForms": "Request forms",
+	"button_description_requestForms": "See request forms",
+	"admin_button_description_requestForms": "See all request forms",
+	"head_button_description_requestForms": "See request forms"
+}

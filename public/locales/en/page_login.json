@@ -1,0 +1,7 @@
+{
+	"title": "Login",
+	"label_email": "Email address",
+	"label_password": "Password",
+	"invalid_credentials_message": "Invalid credentials",
+	"submit_button_title": "Login"
+}

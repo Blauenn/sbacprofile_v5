@@ -1,0 +1,24 @@
+{
+	"header": "Settings",
+
+	"tab_preferences": "Preferences",
+	"preferences_language_title": "Language",
+	"preferences_language_description": "Change the display language.",
+	"preferences_theme_title": "Theme",
+	"preferences_theme_description": "Change the display theme.",
+	"preferences_theme_option1": "Farben",
+  "preferences_theme_option2": "Schlicht",
+
+	"tab_account": "Account",
+	"account_password_title": "Password",
+	"account_password_description": "Change account password.",
+	"account_password_label_currentPassword": "Current password",
+	"account_password_label_newPassword": "New password",
+	"account_password_label_confirmPassword": "Confirm new password",
+	"account_password_wrongPassword": "Current password is invalid.",
+	"account_password_notMatch": "The passwords do not match.",
+	"account_password_shortPassword": "The password should be at least 8 characters long.",
+	"account_password_updateError": "There's a problem updating the password. Please try again later.",
+	"account_password_updateSuccess": "Password has been updated.",
+	"account_password_button": "Change password"
+}

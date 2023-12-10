@@ -1,0 +1,15 @@
+{
+  "home": "Home",
+  "announcements": "Announcements",
+  "dashboard": "Dashboard",
+  "teachers": "Teachers",
+  "students": "Students",
+  "clubs": "Clubs",
+  "settings": "Settings",
+	
+  "logout": "Logout",
+  "logout_title": "Logout",
+  "logout_message": "Are you sure you want to logout?",
+  "logout_confirm_button_title": "Logout",
+  "logout_cancel_button_title": "No"
+}

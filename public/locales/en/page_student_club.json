@@ -1,0 +1,35 @@
+{
+	"header": "Club",
+
+	"requestedClub_title": "Requested club",
+  "requestStatus_title": "Leave request status",
+  "leaveRequestStatus_title": "Leave request status",
+  "pendingApproval_message": "Pending approval",
+  "rejected_message": "Rejected",
+  "currentClub_title": "Current club",
+  "teachers_title": "Teachers",
+  "members_title": "Members",
+  "member_noMembers_message": "No members",
+  "noClub_message": "No clubs",
+  "joinClub_button_title": "Join a club",
+  
+  "cancelJoinRequest_button_title": "Cancel join request",
+  "cancelJoinRequest_message": "You must cancel this join request before making another.",
+  "cancelJoinRequest_modal_header": "Cancel join request",
+  "cancelJoinRequest_modal_message": "Are you sure you want to cancel the join request?",
+  "cancelJoinRequest_modal_submit_button_title": "Cancel join request",
+  "cancelJoinRequest_modal_submit_success_message": "The join request has been cancelled.",
+  
+  "leaveRequest_button_title": "Leave club",
+  "leaveRequest_modal_header": "Leave club",
+  "leaveRequest_modal_message": "Are you sure you want to leave this club?",
+  "leaveRequest_modal_description": "A leave request will be submitted to the teacher of the club.",
+  "leaveRequest_modal_submit_button_title": "Submit leave request",
+  "leaveRequest_modal_submit_success_message": "Club leave request has been submitted.",
+  
+  "cancelLeaveRequest_button_title": "Cancel leave request",
+  "cancelLeaveRequest_modal_header": "Cancel leave request",
+  "cancelLeaveRequest_modal_message": "Are you sure you want to cancel the leave request?",
+  "cancelLeaveRequest_modal_submit_button_title": "Cancel leave request",
+  "cancelLeaveRequest_modal_submit_success_message": "The leave request has been cancelled."
+}

@@ -1,0 +1,9 @@
+{
+	"artificial_user_message": "Artificial user",
+	"clickToCopy_message": "Click to copy",
+	"copied_message": "The content has been copied to the clipboard.",
+	"student_class_title": "{{level}}/{{classroom}} student",
+	"teacher_class_title": "{{level}}/{{classroom}} homeroom teacher",
+	"noHomeroomClass_message": "No homeroom class",
+	"noResults_message": "No results"
+}
