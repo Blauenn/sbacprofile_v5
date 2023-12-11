@@ -6,6 +6,7 @@ import { handle_login } from "../functions/account/login.function";
 // Constants //
 import TextField from "../components/Extended/TextField";
 import Button from "../components/Extended/Button";
+import Button_display_toggle from "../components/Extended/Button_display_toggle";
 
 interface CurrentComponentProp {
 	setAccessToken: React.Dispatch<React.SetStateAction<string>>;
@@ -18,6 +19,8 @@ const Login = (props: CurrentComponentProp) => {
 
 	const [isLoggingIn, setIsLoggingIn] = useState(false);
 	const [isLoginFailed, setIsLoginFailed] = useState(false);
+
+	const [passwordDisplay, setPasswordDisplay] = useState(false);
 
 	const [loginObject, setLoginObject] = useState({
 		login_email: "",
@@ -51,13 +54,16 @@ const Login = (props: CurrentComponentProp) => {
 							setObject={setLoginObject}
 						/>
 						{/* Password*/}
-						<TextField
-							label={t("label_password")}
-							name="login_password"
-							object={loginObject}
-							setObject={setLoginObject}
-							type="password"
-						/>
+						<div className="flex flex-row gap-2">
+							<TextField
+								label={t("label_password")}
+								name="login_password"
+								object={loginObject}
+								setObject={setLoginObject}
+								type={passwordDisplay ? "text" : "password"}
+							/>
+							<Button_display_toggle display={passwordDisplay} setDisplay={setPasswordDisplay} />
+						</div>
 						{isLoginFailed ? (
 							<div className="flex justify-start w-full mb-4">
 								<h1 className="text-lg font-semibold">

@@ -1,4 +1,6 @@
 import { InputHTMLAttributes } from "react";
+import { v4 as uuid } from "uuid";
+// Functions //
 import { handle_input_change } from "../../functions/fields.function";
 
 const field_initial = "block px-4 pb-4 pt-4 w-full text-md text-neutral bg-transparent rounded-xl border appearance-none";
@@ -8,7 +10,6 @@ const label_initial = "absolute text-md text-neutral duration-150 ease-in-out tr
 const label_focused = "peer-focus:px-2 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-90 peer-focus:-translate-y-5";
 
 interface CurrentComponentProp extends InputHTMLAttributes<HTMLInputElement> {
-	customID?: string;
 	label: string;
 	object: unknown;
 	setObject: React.SetStateAction<unknown>;
@@ -17,7 +18,9 @@ interface CurrentComponentProp extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 const TextField = (props: CurrentComponentProp) => {
-	const { customID, label, name, object, setObject, base_bg, validation, ...inputProps } = props;
+	const { label, name, object, setObject, base_bg, validation, ...inputProps } = props;
+
+	const uniqueID = uuid();
 
 	return (
 		<div className="flex flex-col w-full gap-1">
@@ -28,10 +31,10 @@ const TextField = (props: CurrentComponentProp) => {
 						handle_input_change(event, object, setObject);
 					}}
 					name={name}
-					id="floating_outlined"
+					id={`floating_outlined-${uniqueID}}`}
 					className={`${field_initial} ${field_focused} peer`} placeholder=" " />
 				<label
-					htmlFor="floating_outlined"
+					htmlFor={`floating_outlined-${uniqueID}}`}
 					className={`${label_initial} ${label_focused} ${base_bg ? "bg-base-100" : "bg-white"} start-1`}>{label}</label>
 			</div>
 			{validation ? (

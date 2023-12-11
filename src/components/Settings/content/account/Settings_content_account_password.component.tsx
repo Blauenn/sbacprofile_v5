@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import TextField from "../../../Extended/TextField";
+import Button_display_toggle from "../../../Extended/Button_display_toggle";
 import Button_feedback from "../../../Extended/Button_feedback";
 // Functions //
 import { account_password_update } from "../../../../functions/account/change_password.function";
@@ -14,11 +15,16 @@ const Settings_content_account_password = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [isUpdateSuccess, setIsUpdateSuccess] = useState(false);
 
+	const [currentPasswordDisplay, setCurrentPasswordDisplay] = useState(false);
+	const [newPasswordDisplay, setNewPasswordDisplay] = useState(false);
+
 	const [settingsPassword, setSettingsPassword] = useState({
 		current_password: "",
 		new_password: "",
 		confirm_password: "",
 	});
+
+	useEffect(() => { }, [currentPasswordDisplay, newPasswordDisplay]);
 
 	const { t } = useTranslation("page_settings");
 
@@ -32,36 +38,38 @@ const Settings_content_account_password = () => {
 				{t("account_password_description")}
 			</h1>
 			{/* Current password */}
-			<div className="mb-2">
+			<div className="flex flex-row gap-2 mb-2">
 				<TextField
 					label={t("account_password_label_currentPassword")}
 					name="current_password"
 					object={settingsPassword}
 					setObject={setSettingsPassword}
 					value={settingsPassword.current_password}
-					type="password"
+					type={currentPasswordDisplay ? "text" : "password"}
 				/>
+				<Button_display_toggle display={currentPasswordDisplay} setDisplay={setCurrentPasswordDisplay} />
 			</div>
 			{/* New password */}
-			<div className="mt-8 mb-4">
+			<div className="flex flex-row gap-2 mt-8 mb-4">
 				<TextField
 					label={t("account_password_label_newPassword")}
 					name="new_password"
 					value={settingsPassword.new_password}
 					object={settingsPassword}
 					setObject={setSettingsPassword}
-					type="password"
+					type={newPasswordDisplay ? "text" : "password"}
 				/>
+				<Button_display_toggle display={newPasswordDisplay} setDisplay={setNewPasswordDisplay} />
 			</div>
 			{/* Confirm password */}
-			<div className="mb-4">
+			<div className="flex flex-row gap-2 mb-4">
 				<TextField
 					label={t("account_password_label_confirmPassword")}
 					name="confirm_password"
 					object={settingsPassword}
 					setObject={setSettingsPassword}
 					value={settingsPassword.confirm_password}
-					type="password"
+					type={newPasswordDisplay ? "text" : "password"}
 				/>
 			</div>
 			{isError != "" ? (

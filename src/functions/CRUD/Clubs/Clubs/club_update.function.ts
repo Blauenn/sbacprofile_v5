@@ -37,7 +37,7 @@ export const club_update = async (
         club_image:
           clubImageObject != null
             ? `/assets/profilePic/clubs/${clubImageName}`
-            : "",
+            : clubUpdateObject.club_image,
       },
     };
     const clubToUpdateJSON = JSON.stringify(clubToUpdateObject);

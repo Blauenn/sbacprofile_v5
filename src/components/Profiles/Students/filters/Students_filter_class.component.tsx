@@ -26,7 +26,6 @@ const Student_filter_class = (props: ClassFilterProps) => {
 	if (sortedClasses.length > 0) {
 		return (
 			<SelectField
-				customID="3"
 				label={t("label_class")}
 				name="selected_class"
 				object={filters}
@@ -44,7 +43,6 @@ const Student_filter_class = (props: ClassFilterProps) => {
 	} else {
 		return (
 			<SelectField
-				customID="3"
 				label={t("label_class")}
 				disabled
 				object={filters}

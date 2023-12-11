@@ -1,4 +1,6 @@
 import { ChangeEvent, SelectHTMLAttributes } from "react";
+import { v4 as uuid } from "uuid"
+// Functions //
 import { handle_input_change } from "../../functions/fields.function";
 
 const field_initial =
@@ -10,7 +12,6 @@ const label_initial = "absolute text-md text-neutral duration-150 ease-in-out tr
 const label_focused = "peer-focus:px-2 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-focus:top-2 peer-focus:scale-90 peer-focus:-translate-y-5";
 
 interface CurrentComponentProp extends SelectHTMLAttributes<HTMLSelectElement> {
-	customID?: string;
 	label: string;
 	object?: unknown;
 	setObject?: React.SetStateAction<unknown>;
@@ -20,7 +21,9 @@ interface CurrentComponentProp extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 const SelectField = (props: CurrentComponentProp) => {
-	const { customID = 1, label, name, object, setObject, base_bg, children, validation, ...selectProps } = props;
+	const { label, name, object, setObject, base_bg, children, validation, ...selectProps } = props;
+
+	const uniqueID = uuid();
 
 	return (
 		<div className="flex flex-col w-full gap-1">
@@ -33,13 +36,13 @@ const SelectField = (props: CurrentComponentProp) => {
 							: selectProps.onChange && selectProps.onChange(event);
 					}}
 					name={name}
-					id={`floating-outlined-${customID}`}
+					id={`floating-outlined-${uniqueID}`}
 					className={`${field_initial} ${field_focused} ${field_disabled} relative`}
 				>
 					{children}
 				</select>
 				<label
-					htmlFor={`floating-outlined-${customID}`}
+					htmlFor={`floating-outlined-${uniqueID}`}
 					className={`${label_initial} ${label_focused} ${base_bg ? "bg-base-100" : "bg-white"
 						} start-1`}
 				>

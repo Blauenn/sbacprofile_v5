@@ -1,4 +1,6 @@
 import React, { TextareaHTMLAttributes } from "react";
+import { v4 as uuid } from "uuid";
+// Functions //
 import { handle_input_change } from "../../functions/fields.function";
 
 const field_initial = "block px-4 pb-4 pt-4 w-full text-md text-neutral bg-transparent rounded-xl border appearance-none";
@@ -19,6 +21,8 @@ interface CurrentComponentProp extends TextareaHTMLAttributes<HTMLTextAreaElemen
 const TextArea = (props: CurrentComponentProp) => {
 	const { label, name, object, setObject, base_bg, validation, maxRows, ...inputProps } = props;
 
+	const uniqueID = uuid();
+
 	return (
 		<div className="flex flex-col gap-1">
 			<div className="w-full">
@@ -29,13 +33,13 @@ const TextArea = (props: CurrentComponentProp) => {
 							handle_input_change(event, object, setObject);
 						}}
 						name={name}
-						id="floating_outlined"
+						id={`floating_outlined-${uniqueID}`}
 						className={`${field_initial} ${field_focused} peer`}
 						placeholder=" "
 						rows={maxRows || 1}
 					/>
 					<label
-						htmlFor="floating_outlined"
+						htmlFor={`floating_outlined-${uniqueID}`}
 						className={`${label_initial} ${label_focused} ${base_bg ? "bg-base-100" : "bg-white"} start-1`}
 					>
 						{label}

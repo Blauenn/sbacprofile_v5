@@ -32,7 +32,6 @@ const Clubs_filters = (props: CurrentComponentProp) => {
 			{hide_major ?? (
 				<div className="flex md:w-1/3">
 					<SelectField
-						customID="1"
 						label={t("label_major")}
 						name="selected_major"
 						object={filters}
@@ -53,7 +52,6 @@ const Clubs_filters = (props: CurrentComponentProp) => {
 			{/* Search */}
 			<div className="md:w-1/3">
 				<TextField
-					customID="4"
 					label={t("placeholder_search_clubs")}
 					name="search_field"
 					object={filters}

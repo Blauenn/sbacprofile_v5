@@ -85,7 +85,6 @@ const Students_filters = (props: CurrentComponentProp) => {
 			{hide_major ?? (
 				<div className="flex md:w-1/3">
 					<SelectField
-						customID="1"
 						label={t("label_major")}
 						name="selected_major"
 						object={filters}
@@ -106,7 +105,6 @@ const Students_filters = (props: CurrentComponentProp) => {
 			<div className="flex flex-row justify-between gap-2 md:w-1/3">
 				{/* Level */}
 				<SelectField
-					customID="2"
 					label={t("label_level")}
 					name="selected_level"
 					object={filters}
@@ -156,7 +154,6 @@ const Students_filters = (props: CurrentComponentProp) => {
 			{/* Search */}
 			<div className="md:w-1/3">
 				<TextField
-					customID="4"
 					label={t("placeholder_search")}
 					name="search_field"
 					object={filters}
