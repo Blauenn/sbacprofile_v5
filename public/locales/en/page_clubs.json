@@ -5,5 +5,7 @@
 	"noTeachers_message": "No teachers",
 	"members_title": "Members",
 	"noMembers_message": "No members",
-	"joinClub_button_title": "Join club"
+	"joinClub_button_title": "Join club",
+
+	"clubAlreadyJoined_title": "You have already joined a club."
 }

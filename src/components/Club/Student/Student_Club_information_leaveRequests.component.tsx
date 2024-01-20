@@ -31,7 +31,7 @@ const Student_Club_information_leaveRequests = (
 				clubLeaveRequest.club_leave_request_status === 1
 		);
 		setSelfLeaveRequest(leaveRequestSelf);
-	}, []);
+	}, [clubLeaveRequests]);
 
 	const [leaveModalOpen, setLeaveModalOpen] = useState(false);
 	const onLeaveModalClose = () => {

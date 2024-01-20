@@ -36,7 +36,7 @@ const Head_LeaveNotices = () => {
 			<Page_header_return text={t("header")} />
 
 			{leaveNotices.status ? (
-				<LeaveNotices_rolodex leaveNotices={majorLeaveNotices} />
+				<LeaveNotices_rolodex leaveNotices={majorLeaveNotices} evaluateAs={4} />
 			) : (
 				<Skeleton_Forms_rolodex />
 			)

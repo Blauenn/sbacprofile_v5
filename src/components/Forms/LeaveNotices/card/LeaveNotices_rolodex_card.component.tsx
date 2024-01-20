@@ -20,10 +20,11 @@ import i18n from "../../../../i18n";
 
 interface CurrentComponentProp {
 	leaveNotice: LeaveNoticeInterface;
+	evaluateAs: number;
 }
 
 const LeaveNotices_rolodex_card = (props: CurrentComponentProp) => {
-	const { leaveNotice } = props;
+	const { leaveNotice, evaluateAs } = props;
 
 	const { userInfo } = useContext_Account();
 	const { students } = useContext_Students();
@@ -56,7 +57,7 @@ const LeaveNotices_rolodex_card = (props: CurrentComponentProp) => {
 						)}</h1>
 				</div>
 			</div>
-			<LeaveNotices_modal leaveNotice={leaveNotice} open={modalOpen} onModalClose={onModalClose} />
+			<LeaveNotices_modal leaveNotice={leaveNotice} evaluateAs={evaluateAs} open={modalOpen} onModalClose={onModalClose} />
 		</>
 	);
 };

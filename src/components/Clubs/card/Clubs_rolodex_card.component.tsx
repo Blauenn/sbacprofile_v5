@@ -2,9 +2,11 @@ import { useState, useEffect } from "react";
 import { ClubInterface, ClubManagerInterface, ClubMembershipInterface } from "../../../interfaces/clubs.interface";
 // Functions //
 import { teacher_image_from_ID, teacher_major_from_ID } from "../../../functions/information/teachers.function";
+import { student_image_from_ID, student_major_from_ID } from "../../../functions/information/students.function";
 // Contexts //
 import { useContext_Clubs } from "../../../contexts/Clubs/Clubs.context";
 import { useContext_Teachers } from "../../../contexts/Profiles/Teachers/Teacher.context";
+import { useContext_Students } from "../../../contexts/Profiles/Students/Student.context";
 // Components //
 import Small_avatar from "../../Extended/Avatar";
 import Clubs_rolodex_modal from "../modal/Clubs_rolodex_modal.component";
@@ -21,6 +23,7 @@ const Clubs_rolodex_card = (props: CurrentComponentProp) => {
 	const { club } = props;
 
 	const { clubManagers, clubMemberships } = useContext_Clubs();
+	const { students } = useContext_Students();
 	const { teachers } = useContext_Teachers();
 
 	const [currentClubTeachers, setCurrentClubTeachers] = useState<ClubManagerInterface[]>(
@@ -89,13 +92,13 @@ const Clubs_rolodex_card = (props: CurrentComponentProp) => {
 							{currentClubMembers.map((clubMembership: ClubMembershipInterface) => (
 								<Small_avatar
 									key={clubMembership.club_membership_ID}
-									imageURL={teacher_image_from_ID(
+									imageURL={student_image_from_ID(
 										clubMembership.club_membership_student_ID,
-										teachers.result
+										students.result
 									)}
-									profileMajor={teacher_major_from_ID(
+									profileMajor={student_major_from_ID(
 										clubMembership.club_membership_student_ID,
-										teachers.result
+										students.result
 									)}
 								/>
 							))}

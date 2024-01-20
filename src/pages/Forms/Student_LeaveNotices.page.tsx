@@ -49,7 +49,7 @@ const Student_LeaveNotices = () => {
 
 			<div className="flex flex-col gap-4">
 				{leaveNotices.status ? (
-					<LeaveNotices_rolodex leaveNotices={selfLeaveNotices} />
+					<LeaveNotices_rolodex leaveNotices={selfLeaveNotices} evaluateAs={1} />
 				) : (
 					<Skeleton_Forms_rolodex />
 				)}

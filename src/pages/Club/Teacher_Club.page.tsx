@@ -20,7 +20,7 @@ const Teacher_Club = () => {
 	const { students, fetchStudents } = useContext_Students();
 	const { teachers, fetchTeachers } = useContext_Teachers();
 
-	const [selfClub, setSelfClub] = useState<ClubInterface>();
+	const [selfClubs, setSelfClubs] = useState<ClubInterface[]>([]);
 
 	useEffect(() => {
 		fetchClubs();
@@ -32,15 +32,16 @@ const Teacher_Club = () => {
 		fetchStudents();
 		fetchTeachers();
 
-		const clubManagerSelf = clubManagers.result.find((clubManager: ClubManagerInterface) => (
-			clubManager.club_manager_teacher_ID === userInfo.result.profile_ID
-		));
+		const filteredClubManagers = clubManagers.result.filter(
+			(clubManager: ClubManagerInterface) => clubManager.club_manager_teacher_ID === userInfo.result.profile_ID
+		);
 
-		if (clubManagerSelf) {
-			const clubSelfInformation = clubs.result.find((club: ClubInterface) => club.club_ID === clubManagerSelf.club_manager_club_ID);
-			setSelfClub(clubSelfInformation);
+		if (filteredClubManagers.length > 0) {
+			const clubSelfInformation = clubs.result.filter((club: ClubInterface) =>
+				filteredClubManagers.some((clubManager: ClubManagerInterface) => club.club_ID === clubManager.club_manager_club_ID)
+			);
+			setSelfClubs(clubSelfInformation);
 		}
-
 	}, [clubs, clubManagers, clubMemberships, clubLeaveRequests, students, teachers]);
 
 	const { t } = useTranslation("page_teacher_club");
@@ -50,8 +51,14 @@ const Teacher_Club = () => {
 			<Page_header_return text={t("header")} />
 
 			{clubs.status && clubManagers.status && clubMemberships.status && clubJoinRequests.status && clubLeaveRequests.status ? (
-				selfClub ? (
-					<Teacher_Club_information selfClub={selfClub} />
+				selfClubs ? (
+					<div className="flex flex-col gap-16">
+						{
+							selfClubs.map((selfClub: ClubInterface) => (
+								<Teacher_Club_information key={selfClub.club_ID} selfClub={selfClub} />
+							))
+						}
+					</div>
 				) : (
 					<Teacher_Club_noClub />
 				)

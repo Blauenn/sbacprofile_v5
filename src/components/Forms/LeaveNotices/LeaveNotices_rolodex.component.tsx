@@ -9,10 +9,11 @@ import LeaveNotices_rolodex_card from "./card/LeaveNotices_rolodex_card.componen
 
 interface CurrentComponentProp {
 	leaveNotices: LeaveNoticeInterface[];
+	evaluateAs: number;
 }
 
 const LeaveNotices_rolodex = (props: CurrentComponentProp) => {
-	const { leaveNotices } = props;
+	const { leaveNotices, evaluateAs } = props;
 
 	const { fetchStudents } = useContext_Students();
 
@@ -26,7 +27,7 @@ const LeaveNotices_rolodex = (props: CurrentComponentProp) => {
 		<div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
 			{leaveNotices.length ? (
 				leaveNotices.map((leaveNotice: LeaveNoticeInterface) => (
-					<LeaveNotices_rolodex_card key={leaveNotice.leave_notice_ID} leaveNotice={leaveNotice} />
+					<LeaveNotices_rolodex_card key={leaveNotice.leave_notice_ID} leaveNotice={leaveNotice} evaluateAs={evaluateAs} />
 				))
 			) : (
 				<h1 className="text-xl opacity-50">{t("noLeaveNotices_message")}</h1>

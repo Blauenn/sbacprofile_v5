@@ -14,12 +14,13 @@ import LeaveNotices_evaluate_buttons from "./LeaveNotices_evaluate_buttons.compo
 
 interface CurrentComponentProp {
 	leaveNotice: LeaveNoticeInterface;
+	evaluateAs: number;
 	open: boolean;
 	onModalClose: () => void;
 }
 
 const LeaveNotices_modal_evaluate = (props: CurrentComponentProp) => {
-	const { leaveNotice, open, onModalClose } = props;
+	const { leaveNotice, evaluateAs, open, onModalClose } = props;
 
 	const { userInfo } = useContext_Account();
 	const { fetchLeaveNotices } = useContext_LeaveNotices();
@@ -56,7 +57,7 @@ const LeaveNotices_modal_evaluate = (props: CurrentComponentProp) => {
 	};
 
 	let updateAs: number;
-	switch (userInfo.result.profile_position) {
+	switch (evaluateAs) {
 		case 3:
 			updateAs = 2;
 			break;
@@ -169,7 +170,7 @@ const LeaveNotices_modal_evaluate = (props: CurrentComponentProp) => {
 					text_color={info_submit_button_color.text}
 					isPending={isSubmitting}
 					isSuccess={isUpdateSuccess}
-					disabled
+					disabled={leaveNoticeUpdateObject.status === 0}
 					onClick={() => {
 						setObjectAndSubmit();
 					}}

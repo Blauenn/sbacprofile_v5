@@ -30,7 +30,7 @@ const Student_Club_information = (props: CurrentComponentProp) => {
 
 		const clubMembersSelf: ClubMembershipInterface[] = clubMemberships.result.filter((clubMembership: ClubMembershipInterface) => clubMembership.club_membership_club_ID === selfClub.club_ID);
 		setSelfClubMembers(clubMembersSelf);
-	}, [selfClubManagers, selfClubMembers]);
+	}, []);
 
 	const { t } = useTranslation("page_student_club");
 

@@ -34,7 +34,7 @@ const Student_Club_noClub = () => {
 			const clubJoinRequestInformationSelf: ClubInterface | undefined = clubs.result.find((club: ClubInterface) => club.club_ID === selfClubJoinRequest.club_join_request_club_ID);
 			setSelfClubJoinRequestInformation(clubJoinRequestInformationSelf);
 		}
-	}, []);
+	}, [clubs, clubJoinRequests]);
 
 	const [cancelModalOpen, setCancelModalOpen] = useState(false);
 	const onCancelModalClose = () => {

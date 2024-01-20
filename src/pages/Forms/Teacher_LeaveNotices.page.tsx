@@ -49,7 +49,7 @@ const Teacher_LeaveNotices = () => {
 
 			<div className="flex flex-col gap-4">
 				{leaveNotices.status ? (
-					<LeaveNotices_rolodex leaveNotices={studentLeaveNotices} />
+					<LeaveNotices_rolodex leaveNotices={studentLeaveNotices} evaluateAs={3} />
 				) : (
 					<Skeleton_Forms_rolodex />
 				)}

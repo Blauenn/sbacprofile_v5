@@ -15,12 +15,13 @@ import LeaveNotices_modal_delete from "./LeaveNotices_modal_delete.component";
 
 interface CurrentComponentProp {
 	leaveNotice: LeaveNoticeInterface;
+	evaluateAs: number;
 	open: boolean;
 	onModalClose: () => void;
 }
 
 const LeaveNotices_modal = (props: CurrentComponentProp) => {
-	const { leaveNotice, open, onModalClose } = props;
+	const { leaveNotice, evaluateAs, open, onModalClose } = props;
 
 	const { userInfo } = useContext_Account();
 
@@ -53,6 +54,7 @@ const LeaveNotices_modal = (props: CurrentComponentProp) => {
 					<>
 						<LeaveNotices_modal_evaluate
 							leaveNotice={leaveNotice}
+							evaluateAs={evaluateAs}
 							open={evaluateModalOpen}
 							onModalClose={onEvaluateModalClose}
 						/>

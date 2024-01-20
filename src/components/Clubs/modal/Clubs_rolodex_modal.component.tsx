@@ -30,15 +30,22 @@ const Clubs_rolodex_modal = (props: CurrentComponentProp) => {
 	const { userInfo } = useContext_Account();
 	const { students } = useContext_Students();
 	const { teachers } = useContext_Teachers();
-	const { clubJoinRequests } = useContext_Clubs();
+	const { clubMemberships, clubJoinRequests, fetchClubJoinRequests } = useContext_Clubs();
 
 	// This should be one object, but we'll have to see. //
+	const [selfClubMembership, setSelfClubMembership] = useState<ClubMembershipInterface>();
 	const [selfClubJoinRequest, setSelfClubJoinRequest] = useState<ClubJoinRequestInterface[]>([]);
 
 	useEffect(() => {
-		const clubJoinRequestSelf: ClubJoinRequestInterface[] | undefined = clubJoinRequests.result.filter((clubJoinRequest: ClubJoinRequestInterface) => clubJoinRequest.club_join_request_club_ID === club.club_ID && clubJoinRequest.club_join_request_student_ID === userInfo.result.profile_ID && clubJoinRequest.club_join_request_status === 1);
+		fetchClubJoinRequests();
+
+		const clubMembershipSelf: ClubMembershipInterface | undefined = clubMemberships.result.find((clubMembership: ClubMembershipInterface) => clubMembership.club_membership_student_ID === userInfo.result.profile_ID);
+		setSelfClubMembership(clubMembershipSelf);
+
+		const clubJoinRequestSelf: ClubJoinRequestInterface[] | undefined = clubJoinRequests.result.filter((clubJoinRequest: ClubJoinRequestInterface) => clubJoinRequest.club_join_request_student_ID === userInfo.result.profile_ID && clubJoinRequest.club_join_request_status === 1);
 		setSelfClubJoinRequest(clubJoinRequestSelf);
-	}, []);
+
+	}, [clubJoinRequests]);
 
 	const [joinModalOpen, setJoinModalOpen] = useState(false);
 	const onJoinModalClose = () => {
@@ -126,24 +133,41 @@ const Clubs_rolodex_modal = (props: CurrentComponentProp) => {
 					</div>
 				</div>
 				{/* Club join button */}
-				{student_access_only(userInfo.result.profile_position) && selfClubJoinRequest.length === 0 ? (
-					<>
-						<Clubs_rolodex_modal_join
-							club={club}
-							open={joinModalOpen}
-							onModalClose={onJoinModalClose}
-						/>
-						<Button
-							label={t("joinClub_button_title")}
-							icon="fa-solid fa-right-from-bracket"
-							background_color={hover_background_color_from_major[club.club_major]}
-							border_color={border_color_from_major[club.club_major]}
-							text_color={text_color_from_major[club.club_major]}
-							onClick={() => {
-								setJoinModalOpen(true);
-							}}
-						/>
-					</>
+				{student_access_only(userInfo.result.profile_position) ? (
+					selfClubJoinRequest.length === 0 && selfClubMembership === undefined ? (
+						<>
+							<Clubs_rolodex_modal_join
+								club={club}
+								open={joinModalOpen}
+								onModalClose={onJoinModalClose}
+							/>
+							<Button
+								label={t("joinClub_button_title")}
+								icon="fa-solid fa-right-from-bracket"
+								background_color={hover_background_color_from_major[club.club_major]}
+								border_color={border_color_from_major[club.club_major]}
+								text_color={text_color_from_major[club.club_major]}
+								onClick={() => {
+									setJoinModalOpen(true);
+								}}
+							/>
+						</>
+					) : (
+						<div className="flex flex-col w-full gap-4">
+							<Button
+								label={t("joinClub_button_title")}
+								icon="fa-solid fa-right-from-bracket"
+								background_color={hover_background_color_from_major[club.club_major]}
+								border_color={border_color_from_major[club.club_major]}
+								text_color={text_color_from_major[club.club_major]}
+								onClick={() => {
+									setJoinModalOpen(true);
+								}}
+								disabled
+							/>
+							<h1 className="opacity-50 text-md">{t("clubAlreadyJoined_title")}</h1>
+						</div>
+					)
 				) : null}
 			</div>
 		</Modal>
