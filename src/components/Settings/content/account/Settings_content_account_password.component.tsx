@@ -83,7 +83,7 @@ const Settings_content_account_password = () => {
 			<div className="grid justify-end grid-cols-1">
 				<Button_feedback
 					label={t("account_password_button")}
-					successLabel={"account_password_updateSuccess"}
+					successLabel={t("account_password_updateSuccess")}
 					disabled={Object.values(settingsPassword).some(
 						(value) => value === ""
 					) || isSubmitting || isUpdateSuccess}

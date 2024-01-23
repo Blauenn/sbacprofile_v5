@@ -13,7 +13,7 @@ const Student_Club_information_requestStatus = (
 ) => {
 	const { status, create_datetime } = props;
 
-	const { t } = useTranslation();
+	const { t } = useTranslation("page_student_club");
 
 	return status === 1 ? (
 		<>

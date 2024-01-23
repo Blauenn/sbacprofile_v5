@@ -49,7 +49,7 @@ const Clubs_rolodex_modal_join = (props: CurrentComponentProp) => {
 
 			setTimeout(() => {
 				handleModalClose();
-			}, 3000);
+			}, 1000);
 		} else {
 			setIsSubmitting(false);
 			setIsSubmitSuccess(false);

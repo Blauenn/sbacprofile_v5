@@ -70,7 +70,7 @@ const LeaveNotices_modal = (props: CurrentComponentProp) => {
 					<>
 						<LeaveNotices_modal_delete leaveNotice={leaveNotice} open={deleteModalOpen} onModalClose={onDeleteModalClose} />
 						<Button
-							label={"delete_button_title"}
+							label={t("delete_button_title")}
 							icon="fa-solid fa-trash-can"
 							onClick={() => { setDeleteModalOpen(true); }}
 						/>

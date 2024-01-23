@@ -46,7 +46,7 @@ const Club_information_members = (props: CurrentComponentProp) => {
 		setIsSubmitting(false);
 	};
 
-	const { t } = useTranslation("page_student_club");
+	const { t } = useTranslation("page_teacher_club");
 
 	return clubMembers.length > 0 ? (
 		<div className="flex flex-col gap-4">
@@ -72,7 +72,7 @@ const Club_information_members = (props: CurrentComponentProp) => {
 								<div className="flex flex-row gap-2">
 									{/* Approve button */}
 									<Club_student_interact_button
-										title={t("requests_remove_button_title")}
+										title={t("club_student_remove_button_title")}
 										functionToRun={() => {
 											setObjectAndSubmit(
 												clubMembership.club_membership_club_ID,

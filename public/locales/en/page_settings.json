@@ -19,6 +19,6 @@
 	"account_password_notMatch": "The passwords do not match.",
 	"account_password_shortPassword": "The password should be at least 8 characters long.",
 	"account_password_updateError": "There's a problem updating the password. Please try again later.",
-	"account_password_updateSuccess": "Password has been updated.",
+	"account_password_updateSuccess": "Password has been updated",
 	"account_password_button": "Change password"
 }
